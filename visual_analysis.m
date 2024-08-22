@@ -9,10 +9,9 @@ addpath('util\');
 datafolder='dataset\';
 f=10; % The imaging frequency
 dT=1/f; 
-load(fullfile(datafolder,'visual_calcium.mat'));
-load(fullfile(datafolder,'visual_trigger.mat'));
+load(fullfile(datafolder,'demo_visual_dataset.mat'));
 load('cortical_out_line_resize_5.mat');
-
+s
 %% Preprocess
 [nN,nT]=size(valid_C);
 valid_Cd=detrend(valid_C')';   
@@ -40,9 +39,6 @@ inVisL=ismember(va,str2double(Ta(kvis,1))) & (valid_neuron_x>Mx); % If in the le
 cVisx=mean(valid_neuron_x(inVisL)); 
 cVisy=mean(valid_neuron_y(inVisL));
 cVis=[cVisx,cVisy];
-% Visualize the calculated center of visual cortex
-Plot_neuron_posi_measure_thres([valid_neuron_x;cVisx],[valid_neuron_y;cVisy],[zeros(1,nN),1],10,jet,0.5,0.5,1);
-
 VcenterL=cVis;
 
 D2V=sqrt(sum(([valid_neuron_x,valid_neuron_y]-VcenterL).^2,2)); % Distance to left visual cortex
