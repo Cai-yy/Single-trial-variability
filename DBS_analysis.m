@@ -9,10 +9,8 @@ addpath('util\');
 datafolder='dataset\';
 f=10; % The imaging frequency
 dT=1/f; 
-load(fullfile(datafolder,'DBS_calcium.mat'));
-load(fullfile(datafolder,'DBS_trigger.mat'));
+load(fullfile(datafolder,'demo_DBS_dataset'));
 load('cortical_out_line_resize_5.mat');
-load(fullfile(datafolder,'DBS_motion_energy.mat'));
 
 %% Preprocess the data
 % Calcium
